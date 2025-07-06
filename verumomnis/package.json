@@ -4,5 +4,8 @@
   "main": "routes/index.js",
   "scripts": {
     "start": "nodemon routes/index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
