@@ -1,0 +1,8 @@
+{
+  "name": "verum-backend",
+  "version": "1.0.0",
+  "main": "routes/index.js",
+  "scripts": {
+    "start": "nodemon routes/index.js"
+  }
+}
