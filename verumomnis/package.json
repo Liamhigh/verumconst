@@ -6,6 +6,7 @@
     "start": "nodemon routes/index.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "react-scripts": "^5.0.1"
   }
 }
