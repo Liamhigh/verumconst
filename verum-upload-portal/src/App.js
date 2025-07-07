@@ -1,12 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-function App() {
-  return (
-    <div style={{ textAlign: 'center', marginTop: '2em' }}>
-      <h1>Verum Upload Portal</h1>
-      <p>System online.</p>
-    </div>
-  );
-}
-
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
