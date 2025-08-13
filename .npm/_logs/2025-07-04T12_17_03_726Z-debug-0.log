@@ -1,0 +1,20 @@
+0 verbose cli /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/npm
+1 info using npm@11.3.0
+2 info using node@v24.2.0
+3 silly config load:file:/data/data/com.termux/files/usr/lib/node_modules/npm/npmrc
+4 silly config load:file:/.npmrc
+5 silly config load:file:/data/data/com.termux/files/home/.npmrc
+6 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
+7 verbose title npm config set foreground-scripts true
+8 verbose argv "config" "set" "foreground-scripts" "true"
+9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-07-04T12_17_03_726Z-
+10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-07-04T12_17_03_726Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 info config set "foreground-scripts" "true"
+13 silly logfile done cleaning log files
+14 verbose cwd /
+15 verbose os Linux 5.15.153-android13-3-31153516
+16 verbose node v24.2.0
+17 verbose npm  v11.3.0
+18 verbose exit 0
+19 info ok
