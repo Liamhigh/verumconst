@@ -1,41 +1,30 @@
-
-# ensure wrapper is executable in the repo (good for local and CI)
-chmod +x VerumAndroid/gradlew
-
-git add .github/workflows/android.yml VerumAndroid/gradlew
-git commit -m "CI: build from VerumAndroid with Java17 + Gradle wrapper"
-git push origin android-mainname: Android CI
+name: Android CI
 on: [push, pull_request]
-
-# Run all shell steps from the Android project folder
-defaults:
-  run:
-    working-directory: VerumAndroid
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: VerumAndroid   # <-- build inside this folder
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Java 17 (Temurin)
-        uses: actions/setup-java@v4
+      - name: Ensure Gradle wrapper is executable
+        run: chmod +x gradlew
+
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-          cache: 'gradle'
 
-      - name: Set up Gradle cache
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Make Gradle wrapper executable
-        run: chmod +x gradlew
+      - uses: gradle/actions/setup-gradle@v3
 
       - name: Build Debug APK
-        run: ./gradlew --no-daemon clean assembleDebug
+        run: ./gradlew --no-daemon assembleDebug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: VerumAndroid/app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
