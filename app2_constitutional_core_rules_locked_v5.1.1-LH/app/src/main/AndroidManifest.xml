@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.verum.omnis">
+
+    <uses-permission android:name=".MyApp" />
+    <uses-permission android:name=".MyApp" />
+    <uses-permission android:name=".MyApp" android:maxSdkVersion="28"/>
+    <application
+        android:allowBackup="true"
+        android:label="Verum Omnis"
+        android:icon="@drawable/ic_verum_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VerumOmnis">
+        <activity android:name=".MyApp"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".MyApp" />
+                <category android:name=".MyApp" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

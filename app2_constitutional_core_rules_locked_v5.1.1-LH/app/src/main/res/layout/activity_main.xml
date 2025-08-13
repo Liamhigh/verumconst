@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/steel_grey"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_verum_logo"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_main"
+        android:textColor="@color/pure_white"
+        android:textSize="22sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/notice_trial"
+        android:textColor="@color/pure_white"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/disclaimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/disclaimer"
+        android:textColor="@color/pure_white"
+        android:textSize="13sp"
+        android:paddingBottom="12dp"/>
+
+    <Button
+        android:id="@+id/verifyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_verify"/>
+
+    <Button
+        android:id="@+id/pdfBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_generate_pdf"
+        android:layout_marginTop="12dp"/>
+</LinearLayout>
