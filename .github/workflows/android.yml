@@ -4,14 +4,26 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: VerumAndroid   # <-- build inside this folder
+
     steps:
       - uses: actions/checkout@v4
 
+      # Find the Android project folder by locating the gradle wrapper
+      - name: Locate Android project dir
+        id: locate
+        shell: bash
+        run: |
+          set -e
+          APPDIR="$(git ls-files | grep -E '(^|/)(gradlew)$' | head -n1 | xargs dirname || true)"
+          if [ -z "$APPDIR" ] || [ "$APPDIR" = "." ]; then
+            APPDIR="$(find . -type f -name gradlew -print -quit | xargs dirname || echo .)"
+          fi
+          echo "Detected app dir: $APPDIR"
+          echo "appdir=$APPDIR" >> "$GITHUB_OUTPUT"
+
       - name: Ensure Gradle wrapper is executable
         run: chmod +x gradlew
+        working-directory: ${{ steps.locate.outputs.appdir }}
 
       - uses: actions/setup-java@v4
         with:
@@ -22,9 +34,10 @@ jobs:
 
       - name: Build Debug APK
         run: ./gradlew --no-daemon assembleDebug
+        working-directory: ${{ steps.locate.outputs.appdir }}
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: ${{ steps.locate.outputs.appdir }}/app/build/outputs/apk/debug/*.apk
